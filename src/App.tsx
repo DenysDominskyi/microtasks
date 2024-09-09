@@ -6,6 +6,8 @@ import { Footer } from './site/Footer';
 import { NewComponent } from './NewComponent';
 import { Button } from './components/Button';
 import { SecondNewComponent } from './SecondNewComponent';
+import { FullInput } from './components/FullInput';
+import { Input } from './components/Input';
 
 export type ObjType = {
   banknots: string
@@ -15,20 +17,35 @@ export type ObjType = {
 
 function App() {
 
-  const [money, setMoney] = useState([
-    { banknots: 'Dollar', value: 100, number: ' a1234567890' },
-    { banknots: 'Dollar', value: 50, number: ' z1234567890' },
-    { banknots: 'Euro', value: 100, number: ' w1234567890' },
-    { banknots: 'Dollar', value: 100, number: ' e1234567890' },
-    { banknots: 'Dollar', value: 50, number: ' c1234567890' },
-    { banknots: 'Euro', value: 100, number: ' r1234567890' },
-    { banknots: 'Dollar', value: 50, number: ' x1234567890' },
-    { banknots: 'Euro', value: 50, number: ' v1234567890' },
+  const [messages, setMessage] = useState([
+    { message: 'message1' },
+    { message: 'message2' },
+    { message: 'message3' },
   ])
+
+  const [localInputState, setLocalInputState] = useState('')
+
+  const addMessageWithValue = () => {
+    const newMassage = { message: localInputState }
+    setMessage([newMassage, ...messages])
+    setLocalInputState('')
+  }
+
+  // const addMessage = (newMessageText: string) => {
+  //   const newMassage = { message: newMessageText }
+  //   setMessage([newMassage, ...messages])
+  // }
 
   return (
     <>
-      <SecondNewComponent filteredMoney={money}/>
+      {/* <FullInput addMessage={addMessage} /> */}
+      <Input value={localInputState} setValue={setLocalInputState} />
+      <Button title='+' callBack={addMessageWithValue} />
+      {messages.map((el, index) => {
+        return (
+          <div key={index}>{el.message}</div>
+        )
+      })}
     </>
   );
 }

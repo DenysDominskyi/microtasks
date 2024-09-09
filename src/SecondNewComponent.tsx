@@ -30,9 +30,6 @@ export const SecondNewComponent = (props: SecondNewComponentPropsType) => {
     if(filter === 'Dollar') {
         newMoney = props.filteredMoney.filter(obj => obj.banknots === 'Dollar')
     }
-    if(filter === 'All') {
-        newMoney = props.filteredMoney
-    }
 
     return (
         <div>
