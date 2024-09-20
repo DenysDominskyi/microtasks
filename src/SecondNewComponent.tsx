@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from './components/Button'
-import { ObjType } from './App'
+// import { ObjType } from './App'
 
 type FilterType = 'All' | 'Dollar' | 'Euro'
 
@@ -33,7 +33,7 @@ export const SecondNewComponent = (props: SecondNewComponentPropsType) => {
 
     return (
         <div>
-            <ul>
+            {/* <ul>
                 {newMoney.map((obj: ObjType, index) => (
                     <li key={index}>
                         <span>{obj.banknots}</span>
@@ -41,7 +41,7 @@ export const SecondNewComponent = (props: SecondNewComponentPropsType) => {
                         <span>{obj.number}</span>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
             
             <Button title={"All"} callBack={() => onClickHandler('All')}/>
             <Button title={"Euros"} callBack={() => onClickHandler('Euro')}/>
